@@ -4,6 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import datetime as dt
 import numpy as np
+import os
+import pickle
 
 
 #============================== Helpers ======================================================
@@ -112,6 +114,15 @@ for game in range(N_GAMES):
 
 #================== Record Draws to CSV ===========================================
 pd.Series(draw_games).to_csv('draw_games.csv')
+
+
+#================== Save Q-Tables to Disk =========================================
+project_root = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(project_root, "q_table_x.pkl"), "wb") as f:
+    pickle.dump(q_table_x, f)
+with open(os.path.join(project_root, "q_table_o.pkl"), "wb") as f:
+    pickle.dump(q_table_o, f)
 
 
 #======================= Plot Results =============================================

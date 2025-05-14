@@ -1,0 +1,12 @@
+# Enviroment 
+__pycache__
+.venv
+build/
+
+# Testing
+draw_games.csv
+
+# Extra Files for Build
+q_table_*
+tic_tac_toe_gui.spec
+
